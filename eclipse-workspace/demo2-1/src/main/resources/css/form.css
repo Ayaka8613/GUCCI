@@ -1,0 +1,87 @@
+li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+html{
+	font-family:sans-serif;
+}
+form{
+	display:block;
+}
+header{
+	border-bottom: solid 1px #d3d3d3;
+	display:flex;
+	justify-content: space-between;
+	width: 100%;
+}
+header a[href="/home"]{
+	background-color:#000;
+	color:#fff;
+	margin: 10px 25px;
+	padding:10px 25px;
+}
+nav{
+	display:flex;
+	width: auto;
+}
+nav ul{
+	display:flex;
+	justify-content:flex-end;
+	margin:0 15px;
+	padding :0 15px;
+	width: 100%;
+}
+ul li{
+	margin-right:0 ;
+	padding:10px;
+}
+main{
+	display: flex;
+	justify-content: center;
+	margin: 10px auto;
+	padding :5px 15px;
+}
+form .form-name{
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+	margin:10px auto;
+	padding: 10px 15px;
+}
+label{;
+	margin-right: 5px;
+	padding: 5px 15px;
+	width: 150px;
+}
+form input{
+	margin:10px 10px;
+	padding:5px 15px;
+	background-color:#e9e9e9;
+	border:none;
+	border-radius:5px;
+	text-align:left;
+	font-size: 15px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+	height: 50px;
+	width: 700px;
+	padding: 5px 15px;
+}
+.radio-group{
+	display:flex;
+}
+input[type="radio"]{
+	margin-left: 0;
+}
+footer{
+	background-color:#000;
+	color:#fff;
+	margin:10px auto;
+	padding: 10px 15px;
+	font-size:10px;
+	text-align:center;
+}

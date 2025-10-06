@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<link th:href="@{/css/form.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:fragment="header">
+		<header>
+			<a th:href="@{/home}">Demo</a>
+			<nav>
+				<ul>
+					<li th:each="item:${list}" th:text="${item}"></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+	<main>
+		<form th:object="${user}" action="#" method="post">
+				<div class="form-name">
+					<label for="name">氏名</label>
+					<input type="text" th:field="*{name}"/>
+				</div>
+				<div class="form-name">
+					<label for="address">メールアドレス</label>
+					<input type="email" th:field="*{address}"/>
+				</div>
+				<div class="form-name">
+					<label for="phone">電話番号</label>
+					<input type="tel" th:field="*{tel}"/>
+				</div>
+				<div class="form-name">
+					<label for="radio">お問い合わせ内容</label>
+					<div class="ragio-group" th:each="type:${inquiryTypes}">
+						<input type="radio" th:field="*{inquiryType}" th:value="${type}" />
+						<span th:text="${type}"></span>
+					</div>
+				</div>
+		</form>
+	</main>
+	
+	<div th:fragment="footer">
+		<footer>
+			<p>&copy;2024 DEMO Website</p>
+		</footer>
+	</div>
+</body>
+</html>
