@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.validation.BindingResult;
 import com.example.demo.form.ProductForm;
+import com.example.demo.model.Product;
+
 import jakarta.validation.Valid;
 import com.example.demo.service.ProductService;
 import com.example.demo.dto.ProductDto;
@@ -40,6 +44,19 @@ public class ProductController {
 	List<ProductEntity>products = productService.getAllProduct();
 	model.addAttribute("products", products);
 	model.addAttribute("product",new ProductForm());
-	return "product_form";
+	return "product_list";
 	}
+	
+	@GetMapping("/product/list/registration")
+	public String showProductList(Model model) {
+		List<Product> productList =Arrays.asList(
+				new Product("コーヒー",300),
+				new Product("抹茶",120) 
+	);
+	    for (Product p : productList) {
+	        ProductDto dto = new ProductDto(p.getName(), p.getPrice());
+	        productService.save(dto);
+	    }
+	    return "redirect:/product/list";
+	    }
 }
