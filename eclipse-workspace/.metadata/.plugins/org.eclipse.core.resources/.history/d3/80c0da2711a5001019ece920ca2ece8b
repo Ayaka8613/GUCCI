@@ -1,0 +1,22 @@
+package com.example.demo;
+
+import com.example.demo.model.Product;
+import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Arrays;
+import java.util.List;
+
+@Controller
+public class Product {
+	@GetMapping("/products")
+	public String showProductList(Model model) {
+		List<Product> productList =Arrays.asList(
+				
+		);
+		model.addAttribute("products", productList);
+		return "product_list";
+	}
+
+}
